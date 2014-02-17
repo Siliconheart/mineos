@@ -7,7 +7,7 @@
     <!-- START META SECTION -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>MineOS - Web User Interface</title>
+    <title>MineOS - Панель управления</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1.0">
     <meta http-equiv="Content-Language" content="en" />
@@ -86,7 +86,7 @@
                                 </li>
                             </ul>
                             <footer>
-                                <a href="/auth/logout" class="text"><span class="icon icone-off"></span> Sign Off</a>
+                                <a href="/auth/logout" class="text"><span class="icon icone-off"></span> Выход</a>
                             </footer>
                         </div>
                         <!--/ END Dropdown Menu -->
@@ -109,14 +109,14 @@
                             <nav id="nav" class="accordion">
                                 <ul id="navigation">
                                     <!-- START Menu Divider -->
-                                    <li class="divider">Host Settings</li>
+                                    <li class="divider">Системные настройки</li>
                                     <!--/ END Menu Divider -->
 
                                     <!-- START Menu -->
                                     <li class="accordion-group" data-bind="css: {'active': page() == 'dashboard'}">
                                         <a data-bind="click: show_page" data-page="dashboard">
                                             <span class="icon icone-dashboard"></span>
-                                            <span class="text">Dashboard</span>
+                                            <span class="text">Обзор</span>
                                             <span class=""></span>
                                         </a>
                                     </li>
@@ -126,7 +126,7 @@
                                     <li class="accordion-group" data-bind="css: {'active': page() == 'profiles' || page() == 'define_profile'}">
                                         <a data-bind="click: show_page" data-page="profiles">
                                             <span class="icon icone-tags"></span>
-                                            <span class="text">Manage Profiles</span>
+                                            <span class="text">Профили</span>
                                             <span class=""></span>
                                         </a>
                                     </li>
@@ -136,7 +136,7 @@
                                     <li class="accordion-group" data-bind="css: {'active': page() == 'create_server'}">
                                         <a data-bind="click: show_page" data-page="create_server">
                                             <span class="icon icone-share"></span>
-                                            <span class="text">Create New Server</span>
+                                            <span class="text">Создать новый сервер</span>
                                             <span class=""></span>
                                         </a>
                                     </li>
@@ -146,21 +146,21 @@
                                     <li class="accordion-group" data-bind="css: {'active': page() == 'importable'}">
                                         <a data-bind="click: show_page" data-page="importable">
                                             <span class="icon icone-share"></span>
-                                            <span class="text">Create Server from Archive</span>
+                                            <span class="text">Создать сервер из архива</span>
                                             <span class=""></span>
                                         </a>
                                     </li>
                                     <!--/ END Menu -->
 
                                     <!-- START Menu Divider -->
-                                    <li class="divider">Server Settings</li>
+                                    <li class="divider">Настройки сервера</li>
                                     <!--/ END Menu Divider -->
 
                                     <!-- START Menu -->
                                     <li class="accordion-group" data-bind="visible: server().server_name, css: {'active': page() == 'server_status'}">
                                         <a data-bind="click: show_page" data-page="server_status">
                                             <span class="icon icone-globe"></span>
-                                            <span class="text">Server Status</span>
+                                            <span class="text">Состояние сервера</span>
                                             <span class="label label-inverse" data-bind="text: server().capacity"></span>
                                         </a>
                                     </li>
@@ -170,7 +170,7 @@
                                     <li class="accordion-group" data-bind="visible: server().server_name, css: {'active': page() == 'backup_list'}">
                                         <a data-bind="click: show_page" data-page="backup_list">
                                             <span class="icon icone-hdd"></span>
-                                            <span class="text">Restore Points</span>
+                                            <span class="text">Точки восстановления</span>
                                         </a>
                                     </li>
                                     <!--/ END Menu -->
@@ -179,7 +179,7 @@
                                     <li class="accordion-group" data-bind="visible: server().server_name, css: {'active': page() == 'archive_list'}">
                                         <a data-bind="click: show_page" data-page="archive_list">
                                             <span class="icon icone-hdd"></span>
-                                            <span class="text">Archives</span>
+                                            <span class="text">Архивы</span>
                                         </a>
                                     </li>
                                     <!--/ END Menu -->
@@ -206,7 +206,7 @@
                                     <li class="accordion-group" data-bind="visible: server().server_name, css: {'active': page() == 'console'}">
                                         <a data-bind="click: show_page" data-page="console">
                                             <span class="icon icone-desktop"></span>
-                                            <span class="text">Console</span>
+                                            <span class="text">Консоль</span>
                                         </a>
                                     </li>
                                     <!--/ END Menu -->
@@ -229,22 +229,22 @@
                     <div class="navbar-inner">
                         <!-- Breadcrumb -->
                         <ul class="breadcrumb">
-                            <li data-bind="if: server().server_name">Currently Selected Server: <strong><a data-page="server_status" data-bind="text: server().server_name, click: show_page"></a></strong>
+                            <li data-bind="if: server().server_name">Выбранный сервер: <strong><a data-page="server_status" data-bind="text: server().server_name, click: show_page"></a></strong>
                         </ul>
                         <!--/ Breadcrumb -->
                     </div>
                     <div class="navbar-outer">
                         <div class="alert alert-success" data-bind="visible: dashboard.whoami() == 'root'">
                             <button type="button" class="close" data-dismiss="alert">×</button>
-                            <strong>You are currently logged in as root.</strong> You may manage all servers as <strong>root</strong>, but creating new ones must be done as an unprivileged user.
+                            <strong>Вы вошли как root.</strong> Вы можете управлять серверами как <strong>root</strong>, но создавать новые нужно от непривилегированного пользователя.
                         </div>
                         <div class="alert" data-bind="visible: !dashboard.pc_permissions() && (page() == 'profiles' || page() == 'define_profile')">
                             <button type="button" class="close" data-dismiss="alert">×</button>
-                            You do not have rights on <strong>/profiles/profile.config</strong>, so you may prototype a profile but not update it.
+                            У Вас нет прав на <strong>/profiles/profile.config</strong>, Так что вы сможете использовать профили, но не создавать их.
                         </div>
                         <div class="alert alert-error" data-bind="visible: !parseInt(vm.server().java_xmx) > 0 && !$.isEmptyObject(vm.server())">
                             <button type="button" class="close" data-dismiss="alert">×</button>
-                            The <strong>server.config</strong> for this server does not contain a valid, positive integer for the maximum java heapsize (java_xmx).
+                            Файл <strong>server.config</strong> не содержит корректного положительного значения максимального количества памяти java heapsize (java_xmx) для этого сервера.
                         </div>
                     </div>
                 </div>
@@ -257,7 +257,7 @@
                         <!-- START Line Chart - Filled -->
                         <div class="span12 widget">
                             <header>
-                                <h4 class="title">Host Status</h4>
+                                <h4 class="title">Состояние системы</h4>
                                 <!-- START Toolbar -->
                                 <ul class="toolbar pull-right">
                                     <li>
@@ -275,7 +275,7 @@
                                         <figure class="stats summary">
                                             <div class="icon circle green"><span class="icone-ok"></span></div>
                                             <figcaption>
-                                                <h3><span data-bind="text: dashboard.servers_up"></span><small>Running Servers</small></h3>
+                                                <h3><span data-bind="text: dashboard.servers_up"></span><small>Работающие серверы</small></h3>
                                             </figcaption>
                                         </figure>
                                         <!--/ END Summary -->
@@ -284,7 +284,7 @@
                                         <figure class="stats summary">
                                             <div class="icon circle lime"><span class="icone-time"></span></div>
                                             <figcaption>
-                                                <h3><span data-bind="text: dashboard.uptime"></span><small>Uptime</small></h3>
+                                                <h3><span data-bind="text: dashboard.uptime"></span><small>Время работы</small></h3>
                                             </figcaption>
                                         </figure>
                                         <!--/ END Summary -->
@@ -293,7 +293,7 @@
                                         <figure class="stats summary">
                                             <div class="icon circle teal"><span class="icone-ticket"></span></div>
                                             <figcaption>
-                                                <h3><span data-bind="text: dashboard.memfree"></span><small>MB RAM Free</small></h3>
+                                                <h3><span data-bind="text: dashboard.memfree"></span><small>Свободно памяти MB</small></h3>
                                             </figcaption>
                                         </figure>
                                         <!--/ END Summary -->
@@ -304,7 +304,7 @@
                                                 <span><span class="text" data-bind="text: dashboard.disk_usage_pct"></span>%</span>
                                             </div>
                                             <figcaption>
-                                                <h4><span data-bind="text: dashboard.disk_usage_pct"></span><span>%</span><small>HDD Used</small></h4>
+                                                <h4><span data-bind="text: dashboard.disk_usage_pct"></span><span>%</span><small>Использование диска</small></h4>
                                             </figcaption>
                                         </figure>
                                         <!--/ END Circular 1 -->
@@ -314,7 +314,7 @@
                                     <!-- START Auto Update Chart -->
                                     <div class="span11 pull-left widget">
                                         <header>
-                                            <h4 class="title">Load averages over last minute</h4>
+                                            <h4 class="title">Загрузка процессора за последнюю минуту</h4>
                                         </header>
                                         <div class="flot" id="load_averages"></div>
                                     </div>
@@ -332,12 +332,12 @@
                         <table id="table_status" class="table table-hover">
                           <thead>
                             <tr>
-                              <th scope="col">Name</th>
-                              <th scope="col">Profile</th>
-                              <th scope="col">Port</th>
-                              <th scope="col">Status</th>
-                              <th scope="col">Online</th>
-                              <th scope="col">Memory</th>
+                              <th scope="col">Имя</th>
+                              <th scope="col">Профиль</th>
+                              <th scope="col">Порт</th>
+                              <th scope="col">Состояние</th>
+                              <th scope="col">Игроков</th>
+                              <th scope="col">Память</th>
                             </tr>
                           </thead>
                           <tbody data-bind="foreach: vmdata.pings">
@@ -375,7 +375,7 @@
                     <div class="row-fluid">
                         <!-- START Circular Summary -->
                         <div class="span12 widget">
-                            <header><h4 class="title">Server at a Glance</h4></header>
+                            <header><h4 class="title">Сводка данных о сервере</h4></header>
                             <section class="body">
                                 <div class="body-inner" data-bind="with: server()">
                                     <!-- START Summary -->
@@ -393,7 +393,7 @@
                                             <span><span class="text" data-bind="text: online_pct"></span>%</span>
                                         </div>
                                         <figcaption>
-                                            <h4><span data-bind="text: capacity"></span><small>Players Online</small></h4>
+                                            <h4><span data-bind="text: capacity"></span><small>Игроков на сервере</small></h4>
                                         </figcaption>
                                     </figure><!--/ END Circular 1 -->
 
@@ -403,7 +403,7 @@
                                             <span class="text" data-bind="text: memory_pct() + '%', style: {color: overextended() ? 'orange' : 'black'}"></span>
                                         </div>
                                         <figcaption>
-                                            <h4><span data-bind="text: mem_utilization, style: {color: overextended() ? 'orange' : 'black'}"></span><small>Heap Usage</small></h4>
+                                            <h4><span data-bind="text: mem_utilization, style: {color: overextended() ? 'orange' : 'black'}"></span><small>Использовано памяти</small></h4>
                                         </figcaption>
                                     </figure><!--/ END Circular 2 -->
 
@@ -419,10 +419,10 @@
                         <button data-required="server_name" data-cmd="start" data-bind="click: $root.command" type="button" class="btn btn-success span2" data-refresh="5000">Start</button> 
                         <!-- Button Dropdown -->
                         <div class="btn-group">
-                            <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown">Stop <span class="caret"></span></button>
+                            <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown">Выключить <span class="caret"></span></button>
                             <ul class="dropdown-menu">
-                                <li><a data-required="server_name" data-cmd="stop" data-bind="click: $root.command" data-refresh="2000">Stop</a></li> 
-                                <li><a data-required="server_name" data-cmd="kill" data-bind="click: $root.command" data-refresh="2000">Kill</a></li>
+                                <li><a data-required="server_name" data-cmd="stop" data-bind="click: $root.command" data-refresh="2000">Остановить</a></li> 
+                                <li><a data-required="server_name" data-cmd="kill" data-bind="click: $root.command" data-refresh="2000">Снять задачу</a></li>
                             </ul>
                         </div><!--/ Button Dropdown -->
                     </div>
@@ -433,7 +433,7 @@
                         <!-- START Default Widget -->
                         <div class="span6 widget" data-bind="">
                             <header>
-                            	<h4 class="title" data-bind="click: show_page" data-page="backup_list"><span class="icon icone-bookmark"></span> Restore Points</h4>
+                            	<h4 class="title" data-bind="click: show_page" data-page="backup_list"><span class="icon icone-bookmark"></span> Точки восстановления</h4>
                                 <!-- START Toolbar -->
                                 <ul class="toolbar pull-right">
                                     <li><a class="link" data-widget="refresh" data-required="server_name" data-cmd="backup" data-bind="click: $root.command"><span class="icon icone-plus-sign"></span></a></li>
@@ -443,10 +443,10 @@
                             </header>
                             <section class="body">
                                 <div class="body-inner">
-                                	<p>Oldest restore point: <strong data-bind="text: summary.backup.first"></strong></p>
-                                    <p>Most recent restore point: <strong data-bind="text: summary.backup.most_recent"></strong></p>
-                                    <p>Space used by backups: <strong data-bind="text: summary.backup.cumulative"></strong></p>
-                                    <p><a class="link pointer" data-widget="refresh" data-required="server_name" data-cmd="backup" data-bind="click: $root.command">Create a new Restore Point</a></p>
+                                	<p>Самая ранняя точка восстановления: <strong data-bind="text: summary.backup.first"></strong></p>
+                                    <p>Последняя точка восстановления: <strong data-bind="text: summary.backup.most_recent"></strong></p>
+                                    <p>Использовано места для восстановления: <strong data-bind="text: summary.backup.cumulative"></strong></p>
+                                    <p><a class="link pointer" data-widget="refresh" data-required="server_name" data-cmd="backup" data-bind="click: $root.command">Создать точку восстановления</a></p>
                                 </div>
                             </section>
                         </div>
@@ -455,7 +455,7 @@
                         <!-- START Default Widget -->
                         <div class="span6 widget">
                             <header>
-                                <h4 class="title" data-bind="click: show_page" data-page="archive_list"><span class="icon icone-bookmark"></span> Archives</h4>
+                                <h4 class="title" data-bind="click: show_page" data-page="archive_list"><span class="icon icone-bookmark"></span> Архивы</h4>
                                 <!-- START Toolbar -->
                                 <ul class="toolbar pull-right">
                                     <li><a class="link" data-widget="refresh" data-required="server_name" data-cmd="archive" data-bind="click: $root.command"><span class="icon icone-plus-sign"></span></a></li>
@@ -465,10 +465,10 @@
                             </header>
                             <section class="body">
                                 <div class="body-inner">
-                                	<p>Oldest archive: <strong data-bind="text: summary.archive.first"></strong></p>
-                                    <p>Most recent archive: <strong data-bind="text: summary.archive.most_recent"></strong></p>
-                                    <p>Space used by archives: <strong data-bind="text: summary.archive.cumulative"></strong></p>
-                                    <p><a class="link pointer" data-widget="refresh" data-required="server_name" data-cmd="archive" data-bind="click: $root.command">Create a new Archive</a></p>
+                                	<p>Самый ранний архив: <strong data-bind="text: summary.archive.first"></strong></p>
+                                    <p>Последний архив: <strong data-bind="text: summary.archive.most_recent"></strong></p>
+                                    <p>Использовано места для архивов: <strong data-bind="text: summary.archive.cumulative"></strong></p>
+                                    <p><a class="link pointer" data-widget="refresh" data-required="server_name" data-cmd="archive" data-bind="click: $root.command">Создать новый архив</a></p>
                                 </div>
                             </section>
                         </div>
@@ -481,13 +481,13 @@
                         <!-- START Default Widget -->
                         <div class="span6 widget" data-bind="">
                             <header>
-                                <h4 class="title" data-bind=""><span class="icon icone-bookmark"></span> Ownership and Disk Usage</h4>
+                                <h4 class="title" data-bind=""><span class="icon icone-bookmark"></span> Владельцы и использование диска</h4>
                             </header>
                             <section class="body">
                                 <div class="body-inner">
-                                    <p>Server Owner: <strong data-bind="text: summary.owner"></strong></p>
-                                    <p>Group Owner: <select id="available_groups" data-bind="options: $root.dashboard.groups, event: { change: $root.change_group } "></select></p>
-                                    <p>Space used by live server files: <strong data-bind="text: summary.du_cwd"></strong></p>
+                                    <p>Владелец: <strong data-bind="text: summary.owner"></strong></p>
+                                    <p>Группа владельцев: <select id="available_groups" data-bind="options: $root.dashboard.groups, event: { change: $root.change_group } "></select></p>
+                                    <p>Использование диска файлами сервера: <strong data-bind="text: summary.du_cwd"></strong></p>
                                 </div>
                             </section>
                         </div>
@@ -495,21 +495,21 @@
                         <!-- START Default Widget -->
                         <div id="delete_server" class="span6 widget" data-bind="">
                             <header>
-                                <h4 class="title" data-bind=""><span class="icon icone-bookmark"></span> Delete Server</h4>
+                                <h4 class="title" data-bind=""><span class="icon icone-bookmark"></span> Удалить сервер</h4>
                             </header>
                             <section class="body">
                                 <div class="body-inner">
                                     <div class="controls" id="delete_confirmations">
                                         <label class="checkbox">
-                                            <input type="checkbox" value="true"> Delete <span data-bind="text: $root.dashboard.base_directory"></span>/servers/<span data-bind="text: $root.server().server_name"></span>
+                                            <input type="checkbox" value="true"> Удалить <span data-bind="text: $root.dashboard.base_directory"></span>/servers/<span data-bind="text: $root.server().server_name"></span>
                                         </label>
                                         <label class="checkbox">
-                                            <input type="checkbox" value="true"> Delete <span data-bind="text: $root.dashboard.base_directory"></span>/backup/<span data-bind="text: $root.server().server_name"></span>
+                                            <input type="checkbox" value="true"> Удалить <span data-bind="text: $root.dashboard.base_directory"></span>/backup/<span data-bind="text: $root.server().server_name"></span>
                                         </label>
                                         <label class="checkbox">
-                                            <input type="checkbox" value="true"> Delete <span data-bind="text: $root.dashboard.base_directory"></span>/archive/<span data-bind="text: $root.server().server_name"></span>
+                                            <input type="checkbox" value="true"> Удалить <span data-bind="text: $root.dashboard.base_directory"></span>/archive/<span data-bind="text: $root.server().server_name"></span>
                                         </label>
-                                        <button class="btn btn-warning btn-mini" data-bind="click: $root.delete_server">Delete </button>
+                                        <button class="btn btn-warning btn-mini" data-bind="click: $root.delete_server">Удалить </button>
                                     </div>
                                 </div>
                             </section>
@@ -526,7 +526,7 @@
                     <!-- START Row -->
                     <div class="row-fluid">
                         <div class="control-group">
-                            <label class="control-label">Remove restore points older than:</label>
+                            <label class="control-label">Удалить точки восстановления старше чем:</label>
                             <div class="controls">
                                 <input type="text" id="prune_increment_input" data-bind="value: pruning.increments.user_input, valueUpdate:['afterkeydown','propertychange','input']" placeholder="Pick a date or step"> <button data-bind="click: prune_increments, visible: pruning.increments.remove_count() > 0" type="button" class="btn btn-danger"><span class="icone-remove-circle"></span> Prune Restore Points</button>
                             </div>
@@ -539,14 +539,14 @@
                     <div class="row-fluid" data-bind="if: pruning.increments.user_input().length > 0">
                         <!-- START Icon Statistic - Circle -->
                         <div class="span12 widget">
-                            <header><h4 class="title">Removal Summary</h4></header>
+                            <header><h4 class="title">Результат удаления</h4></header>
                             <section class="body">
                                 <div class="body-inner" style="">
                                     <!-- START Summary 1 -->
                                     <figure class="stats summary shadowed">
                                         <div class="icon circle lime"><span class="icone-folder-close"></span></div>
                                         <figcaption>
-                                            <h3><span data-bind="text: pruning.increments.remove_count"></span><small>Restore Points</small></h3>
+                                            <h3><span data-bind="text: pruning.increments.remove_count"></span><small>Точек восстановления</small></h3>
                                         </figcaption>
                                     </figure><!--/ END Summary 1 -->
 
@@ -554,7 +554,7 @@
                                     <figure class="stats summary shadowed">
                                         <div class="icon circle purple"><span class="icone-shopping-cart"></span></div>
                                         <figcaption>
-                                            <h3><span data-bind="text: pruning.increments.space_reclaimed"></span><small>MB Reclaimed</small></h3>
+                                            <h3><span data-bind="text: pruning.increments.space_reclaimed"></span><small>MB освобождено</small></h3>
                                         </figcaption>
                                     </figure><!--/ END Summary 2 -->
                                 </div>
@@ -569,10 +569,10 @@
                         <table class="table table-hover" data-bind="">
                           <thead>
                             <tr>
-                              <th scope="col">Step</th>
-                              <th scope="col">Timestamp</th>
-                              <th scope="col">Increment Size</th>
-                              <th scope="col">Cumulative Size</th>
+                              <th scope="col">Шаг</th>
+                              <th scope="col">Время и дата</th>
+                              <th scope="col">Размер шага</th>
+                              <th scope="col">Нарастающий итог</th>
                               <th scope="col"></th>
                             </tr>
                           </thead>
@@ -599,7 +599,7 @@
                     <!-- START Row -->
                     <div class="row-fluid">
                         <div class="control-group">
-                            <label class="control-label">Remove archives older than:</label>
+                            <label class="control-label">Удалить архивы старше чем:</label>
                             <div class="controls">
                                 <input type="text" id="prune_archive_input" data-bind="value: pruning.archives.user_input, valueUpdate:['afterkeydown','propertychange','input']" placeholder="Pick a date"> <button data-bind="visible: pruning.archives.remove_count, click: prune_archives" type="button" class="btn btn-danger"><span class="icone-remove-circle"></span> Prune Archives</button>
                             </div>
@@ -611,14 +611,14 @@
                     <div class="row-fluid" data-bind="if: pruning.archives.remove_count() > 0">
                         <!-- START Icon Statistic - Circle -->
                         <div class="span12 widget">
-                            <header><h4 class="title">Removal Summary</h4></header>
+                            <header><h4 class="title">Результат удаления</h4></header>
                             <section class="body">
                                 <div class="body-inner" style="">
                                     <!-- START Summary 1 -->
                                     <figure class="stats summary shadowed">
                                         <div class="icon circle lime"><span class="icone-folder-close"></span></div>
                                         <figcaption>
-                                            <h3><span data-bind="text: pruning.archives.remove_count"></span><small>Archives</small></h3>
+                                            <h3><span data-bind="text: pruning.archives.remove_count"></span><small>Архивов</small></h3>
                                         </figcaption>
                                     </figure><!--/ END Summary 1 -->
 
@@ -626,7 +626,7 @@
                                     <figure class="stats summary shadowed">
                                         <div class="icon circle purple"><span class="icone-shopping-cart"></span></div>
                                         <figcaption>
-                                            <h3><span data-bind="text: pruning.archives.space_reclaimed"></span><small>MB Reclaimed</small></h3>
+                                            <h3><span data-bind="text: pruning.archives.space_reclaimed"></span><small>MB освобождено</small></h3>
                                         </figcaption>
                                     </figure><!--/ END Summary 2 -->
                                 </div>
@@ -641,9 +641,9 @@
                         <table class="table table-hover" data-bind="">
                           <thead>
                             <tr>
-                              <th scope="col">Timestamp</th>
-                              <th scope="col">Increment Size</th>
-                              <th scope="col">Filename</th>
+                              <th scope="col">Время и дата</th>
+                              <th scope="col">Размер архива</th>
+                              <th scope="col">Имя файла</th>
                               <th scope="col"></th>
                             </tr>
                           </thead>
@@ -656,11 +656,11 @@
                               <td data-bind="text: $data.filename"></td>
                               <td>
                                 <div class="btn-group">
-                                    <button class="btn dropdown-toggle" data-toggle="dropdown">Actions <span class="caret"></span></button>
+                                    <button class="btn dropdown-toggle" data-toggle="dropdown">Действия <span class="caret"></span></button>
                                     <ul class="dropdown-menu">
-                                        <li><a data-bind="click: $root.remember_import" data-toggle="modal" data-target="#import_server_modal">Create Server From</a></li>
+                                        <li><a data-bind="click: $root.remember_import" data-toggle="modal" data-target="#import_server_modal">Создать сервер из архива</a></li>
                                         <li>&nbsp;</li>
-                                        <li><a data-required="server_name,filename" data-cmd="prune_archives" data-bind="click: $root.command">Delete</a></li>
+                                        <li><a data-required="server_name,filename" data-cmd="prune_archives" data-bind="click: $root.command">Удалить</a></li>
                                     </ul>
                                 </div>
                               </td>
@@ -679,7 +679,7 @@
                         <!-- START General Elements -->
                         <div class="" data-bind="">
                             <header>
-                                <h4 class="title">Create Server from an Archive</h4>
+                                <h4 class="title">Создать сервер из архива</h4>
                             </header>
                             <section class="body">
                                 <div class="body-inner">
