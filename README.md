@@ -1,20 +1,20 @@
-This is the github repository for MineOS Minecraft hosting and management scripts.
+Это попытка перевода репозитория https://github.com/hexparrot/mineos на русский язык.
 
-While MineOS can always be found with a distributable ISO (currently Turnkey), these scripts are distro-agnostic and can be installed atop any Linux or BSD system. See the wiki for details.
+Данные скрипты могут быть установлены на любую систему Linux или BSD.
 
-Features
+Возможности
 ========
 
-- Web user interface with modern Knockout templating
-- Scheduled backups, archives, and restarts
-- Command-line scriptable
-- Leverages host system's existing user passwords (/etc/shadow) and HTTPS
-- Shared administration functionality using group permissions
-- Works on Linux and BSD
+- Современный отзывчивый Веб-интерфейс пользователя
+- Резервное копирование, архивирование и перезагрузка сервера по расписанию
+- Выполнение скриптов командной строки
+- Использование существующих в системе пользователей и паролей (/etc/shadow) а так же HTTPS
+- Совместное администрирование используя групповые права
+- Работает на Linux и BSD
 
-Tutorials
+Учебные пособия
 =========
 
-Installation tutorial: http://minecraft.codeemo.com/mineoswiki/index.php?title=Installing_MineOS
+Пособие по установке (на английском языке): http://minecraft.codeemo.com/mineoswiki/index.php?title=Installing_MineOS
 
-Youtube Instructions: http://www.youtube.com/watch?v=idEAnpa4yUQ&feature=share&list=UUTdhIeaydDUDLCDSN7PEBaQ
+Инструкции Youtube (на английском языке): http://www.youtube.com/watch?v=idEAnpa4yUQ&feature=share&list=UUTdhIeaydDUDLCDSN7PEBaQ
