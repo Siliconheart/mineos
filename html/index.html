@@ -382,7 +382,7 @@
                                     <figure class="stats summary pull-left">
                                         <div data-bind="css: {'green': up, 'red': !up}" class="icon circle"><span data-bind="css: {'icone-ok': up, 'icone-off': !up}"></span></div>
                                         <figcaption>
-                                            <h3><span data-bind="text: (up ? 'online' : 'offline')"></span><small data-bind="text: port"></small></h3>
+                                            <h3><span data-bind="text: (up ? 'Работает' : 'Выключен')"></span><small data-bind="text: port"></small></h3>
                                         </figcaption>
                                     </figure>
                                     <!--/ END Summary -->
@@ -416,7 +416,7 @@
          
                     <!-- START Row -->
                     <div class="row-fluid">
-                        <button data-required="server_name" data-cmd="start" data-bind="click: $root.command" type="button" class="btn btn-success span2" data-refresh="5000">Start</button> 
+                        <button data-required="server_name" data-cmd="start" data-bind="click: $root.command" type="button" class="btn btn-success span2" data-refresh="5000">Запустить</button> 
                         <!-- Button Dropdown -->
                         <div class="btn-group">
                             <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown">Выключить <span class="caret"></span></button>
@@ -528,7 +528,7 @@
                         <div class="control-group">
                             <label class="control-label">Удалить точки восстановления старше чем:</label>
                             <div class="controls">
-                                <input type="text" id="prune_increment_input" data-bind="value: pruning.increments.user_input, valueUpdate:['afterkeydown','propertychange','input']" placeholder="Pick a date or step"> <button data-bind="click: prune_increments, visible: pruning.increments.remove_count() > 0" type="button" class="btn btn-danger"><span class="icone-remove-circle"></span> Prune Restore Points</button>
+                                <input type="text" id="prune_increment_input" data-bind="value: pruning.increments.user_input, valueUpdate:['afterkeydown','propertychange','input']" placeholder="Введите дату или шаг"> <button data-bind="click: prune_increments, visible: pruning.increments.remove_count() > 0" type="button" class="btn btn-danger"><span class="icone-remove-circle"></span> Prune Restore Points</button>
                             </div>
                         </div>
 
@@ -601,7 +601,7 @@
                         <div class="control-group">
                             <label class="control-label">Удалить архивы старше чем:</label>
                             <div class="controls">
-                                <input type="text" id="prune_archive_input" data-bind="value: pruning.archives.user_input, valueUpdate:['afterkeydown','propertychange','input']" placeholder="Pick a date"> <button data-bind="visible: pruning.archives.remove_count, click: prune_archives" type="button" class="btn btn-danger"><span class="icone-remove-circle"></span> Prune Archives</button>
+                                <input type="text" id="prune_archive_input" data-bind="value: pruning.archives.user_input, valueUpdate:['afterkeydown','propertychange','input']" placeholder="введите дату"> <button data-bind="visible: pruning.archives.remove_count, click: prune_archives" type="button" class="btn btn-danger"><span class="icone-remove-circle"></span> Prune Archives</button>
                             </div>
                         </div>
                     </div>
@@ -683,8 +683,8 @@
                             </header>
                             <section class="body">
                                 <div class="body-inner">
-                                    <p>Creating and running a server should be done strictly as an unprivileged user to contain potential damage from server exploits, faulty plugins or java secuirty issues.</p>
-                                    <p>You can create a user from the command line using <strong>adduser</strong></p>
+                                    <p>Создавать и запускать сервер следует исключительно от имени непривилегированного пользователя, чтобы предотвратить возможное причинение вреда от использования уязвимостей сервера, сбойных плагинов или проблем с безопасностью в java.</p>
+                                    <p>Вы можете создать пользователя из командной строки используя <strong>adduser</strong></p>
                                 </div>
                             </section>
                         </div>
@@ -722,17 +722,17 @@ Is the information correct? [Y/n]
                     <!-- START Row -->
                     <div class="row-fluid" data-bind="visible: dashboard.whoami() != 'root'">
                         <header>
-                            <h4 class="title">Create Server from an Archive</h4>
+                            <h4 class="title">Создать сервер из архива</h4>
                         </header>
                         <section class="body">
                             <div class="body-inner">
-                                <p>The files listed below are those located in the <strong class="text-success" data-placement="top" title="" rel="tooltip" data-original-title="Acceptable archives are .tar, .tar.gz, .tgz, and .zip"><span data-bind="text: $root.dashboard.base_directory"></span>/import</strong> directory of your Minecraft data files.</p>
+                                <p>Перечисленные ниже файлы находятся в директории <strong class="text-success" data-placement="top" title="" rel="tooltip" data-original-title="Допускаются архивы типа .tar, .tar.gz, .tgz, и .zip"><span data-bind="text: $root.dashboard.base_directory"></span>/import</strong> Ваших Minecraft-файлов.</p>
                             </div>
                         </section>
                         <table id="table_importable" class="table table-hover" data-bind="">
                           <thead>
                             <tr>
-                              <th scope="col">Filename</th>
+                              <th scope="col">Имя файла</th>
                               <th scope="col"></th>
                             </tr>
                           </thead>
@@ -742,7 +742,7 @@ Is the information correct? [Y/n]
                             <tr>
                               <td data-bind="text: filename"></td>
                               <td>
-                                <button class="btn btn-success btn-mini" data-bind="click: $root.remember_import" data-toggle="modal" data-target="#import_server_modal">Create Server From </button>
+                                <button class="btn btn-success btn-mini" data-bind="click: $root.remember_import" data-toggle="modal" data-target="#import_server_modal">Создать сервер из </button>
                               </td>
                             </tr>
                           </tbody>
@@ -759,7 +759,7 @@ Is the information correct? [Y/n]
                         <!-- START Page/Section header -->
                         <div class="span12">
                             <div class="page-header line1">
-                                <h4>Server Profiles</h4>
+                                <h4>Профили серверов</h4>
                             </div>
                         </div>
                         <!--/ END Page/Section header -->
@@ -771,9 +771,9 @@ Is the information correct? [Y/n]
                         <table id="table_profiles_view" class="table table-hover">
                           <thead>
                             <tr>
-                              <th scope="col">Profile</th>
-                              <th scope="col">Runnable Jar</th>
-                              <th scope="col">URL</th>
+                              <th scope="col">Профиль</th>
+                              <th scope="col">Запускаемый Jar-файл</th>
+                              <th scope="col">Путь URL</th>
                               <th scope="col">OK</th>
                               <th scope="col"></th>
                             </tr>
@@ -787,17 +787,17 @@ Is the information correct? [Y/n]
                                 <td data-bind="text: url"></td>
                                 <td data-bind=""><span class="icon" data-bind="css: {'icon-ok': run_as_md5, 'icon-remove': !run_as_md5}"></span></td>
                                 <td>
-                                	<button class="btn btn-success btn-mini" data-required="profile" data-refresh="500" data-cmd="update_profile" data-bind="click: $root.command">Update </button>
-                                    <button class="btn btn-warning btn-mini" data-bind="click: $root.remember_profile" data-toggle="modal" data-target="#remove_profile_modal">Remove </button>
+                                	<button class="btn btn-success btn-mini" data-required="profile" data-refresh="500" data-cmd="update_profile" data-bind="click: $root.command">Обновить </button>
+                                    <button class="btn btn-warning btn-mini" data-bind="click: $root.remember_profile" data-toggle="modal" data-target="#remove_profile_modal">Удалить </button>
                                 </td>
                             </tr>
                           </tbody>
                           <tfoot>
                             <tr>
                               <td colspan="6">
-                                <button class="btn" data-toggle="dropdown" data-bind="click: show_page" data-page="define_profile">Create Custom Profile</button>
+                                <button class="btn" data-toggle="dropdown" data-bind="click: show_page" data-page="define_profile">Создать пользовательский профиль</button>
                               	<div class="btn-group">
-                                    <button class="btn dropdown-toggle" data-toggle="dropdown">Create Stock Profile <span class="caret"></span></button>
+                                    <button class="btn dropdown-toggle" data-toggle="dropdown">Создать базовый профиль <span class="caret"></span></button>
                                     <ul class="dropdown-menu" data-bind="foreach: $root.dashboard.stock_profiles">
                                         <li><a data-required="profile" data-cmd="stock_profile" data-bind="click: $root.command, attr: {'data-profile': $data}, text: $data"></a></li>
                                     </ul>
@@ -813,10 +813,10 @@ Is the information correct? [Y/n]
                     <div class="row-fluid">
                         <section class="body">
                             <div class="body-inner">
-                                <p>Server profiles may be prototyped by any user, but may only be updated by a user with write permissions on <strong class="text-success" data-placement="top" title="" rel="tooltip" data-original-title="chmod g+w profile.config">profile.config</strong>.
-                                <span data-bind="visible: $root.dashboard.whoami() != 'root'">The <strong>root</strong> user may extend these privileges to additional users by assigning <strong><span data-bind="text: $root.dashboard.base_directory"></span>/profiles/profile.config</strong> to a new group and then adding authorized users to this group.</span>
-                                <span data-bind="visible: $root.dashboard.whoami() == 'root'">You may share this privilege with additional users by assigning <strong><span data-bind="text: $root.dashboard.base_directory"></span>/profiles/profile.config</strong> to a new group and then adding authorized users to this group.</span></p>
-                                Members of this group may update and remove profiles: 
+                                <p>Профили сервера могут быль использованы любым пользователем, но редактировать их может пользователь с правами записи в <strong class="text-success" data-placement="top" title="" rel="tooltip" data-original-title="chmod g+w profile.config">profile.config</strong>.
+                                <span data-bind="visible: $root.dashboard.whoami() != 'root'">Пользователь <strong>root</strong> может расширить эти привилегии на дополнительных пользователей, присвоив файл <strong><span data-bind="text: $root.dashboard.base_directory"></span>/profiles/profile.config</strong> новой группе, а затем добавляя в неё доверенных пользователей.</span>
+                                <span data-bind="visible: $root.dashboard.whoami() == 'root'">Вы можете предоставить это право другим пользователям, назначая файлу <strong><span data-bind="text: $root.dashboard.base_directory"></span>/profiles/profile.config</strong> новую группу и добавля в неё доверенных пользователей.</span></p>
+                                Члены этой группы могут редактировать и удалять профили серверов: 
                                 <select id="pc_group" name="pc_group" data-bind="visible: $root.dashboard.whoami() == 'root', options: $root.dashboard.groups, event: { change: $root.change_pc_group }"></select>
                                 <strong data-bind="visible: $root.dashboard.whoami() != 'root', text: $root.dashboard.pc_group"></strong>
                             </div>
@@ -833,7 +833,7 @@ Is the information correct? [Y/n]
                         <!-- START Line Chart - Filled -->
                         <div class="span12 widget" data-bind="with: profile()">
                             <header>
-                                <h4 class="title">Profile Definition</h4>
+                                <h4 class="title">Определение профиля</h4>
                                 <!-- START Toolbar -->
                                 <!--/ END Toolbar -->
                             </header>
@@ -844,7 +844,7 @@ Is the information correct? [Y/n]
                                         <figure class="stats summary pull-left">
                                             <div data-bind="css: {'green': run_as_md5, 'red': !run_as_md5}" class="icon circle"><span data-bind="css: {'icone-ok': run_as_md5, 'icone-off': !run_as_md5}"></span></div>
                                             <figcaption>
-                                                <h3><span data-bind="text: run_as"></span><small><a class="pointer" data-required="profile" data-refresh="500" data-cmd="update_profile" data-bind="click: $root.command">Download Now</a></small></h3>
+                                                <h3><span data-bind="text: run_as"></span><small><a class="pointer" data-required="profile" data-refresh="500" data-cmd="update_profile" data-bind="click: $root.command">Скачать</a></small></h3>
                                             </figcaption>
                                         </figure>
                                         <!--/ END Summary -->
@@ -863,7 +863,7 @@ Is the information correct? [Y/n]
                                         <figure class="stats summary">
                                             <div class="icon circle teal"><span class="icone-trophy"></span></div>
                                             <figcaption>
-                                                <h3><span data-bind="text: version"></span><small>Detected Version</small></h3>
+                                                <h3><span data-bind="text: version"></span><small>Обнаружена версия</small></h3>
                                             </figcaption>
                                         </figure>
                                         <!-- /ko -->
@@ -881,7 +881,7 @@ Is the information correct? [Y/n]
                         <!-- START General Elements -->
                         <div class="span12 widget dark" data-bind="with: profile()">
                             <header>
-                                <h4 class="title"><span class="icon icone-keyboard"></span> Profile Notes</h4>
+                                <h4 class="title"><span class="icon icone-keyboard"></span> Комментарий к профилю</h4>
                             </header>
                             <section class="body">
                                 <div class="body-inner">
@@ -907,12 +907,12 @@ Is the information correct? [Y/n]
                         <!-- START General Elements -->
                         <div class="" data-bind="">
                             <header>
-                                <h4 class="title">Create a Server</h4>
+                                <h4 class="title">Создание сервера</h4>
                             </header>
                             <section class="body">
                                 <div class="body-inner">
-                                    <p>Creating and running a server should be done strictly as an unprivileged user to contain potential damage from server exploits, faulty plugins or java secuirty issues.</p>
-                                    <p>You can create a user from the command line using <strong>adduser</strong></p>
+                                    <p>Создавать и запускать сервер следует исключительно от имени непривилегированного пользователя, чтобы предотвратить возможное причинение вреда от использования уязвимостей сервера, сбойных плагинов или проблем с безопасностью в java.</p>
+                                    <p>Вы можете создать пользователя из командной строки используя <strong>adduser</strong></p>
                                 </div>
                             </section>
                         </div>
@@ -951,28 +951,28 @@ Is the information correct? [Y/n]
                     <div class="row-fluid" data-bind="visible: dashboard.whoami() != 'root'">
                         <!-- START Form Wizard With Validation -->
                         <form data-bind="submit: create_server" class="span12 widget dark shadowed form-horizontal bordered" id="createnewserver">
-                            <header><h4 class="title">Create a New Server</h4></header>
+                            <header><h4 class="title">Создать новый сервер</h4></header>
                             <section class="body">
                                 <div class="body-inner">
                                     <fieldset class="step" id="step1">
                                         <div class="step-title">
                                             <span class="icon icone-lock lime"></span>
                                             <h5>
-                                                STEP 1<br/>
-                                                <small>Ownership Information</small>
+                                                ШАГ 1<br/>
+                                                <small>Информация о владельце</small>
                                             </h5>
                                         </div>
                                         <div class="control-group">
-                                            <label class="control-label">Server Name:</label>
+                                            <label class="control-label">Имя сервера:</label>
                                             <div class="controls">
                                                 <input type="text" name="server_name" class="input-medium required" required>
                                             </div>
                                         </div>
                                         <div class="control-group">
-                                            <label class="control-label">Group Ownership:</label>
+                                            <label class="control-label">Членство в группе:</label>
                                             <div class="controls">
                                                 <select name="group" data-bind="options: $root.dashboard.groups"></select>
-                                                <span class="help-block">Other members of this group will have full control of the server</span>
+                                                <span class="help-block">Другие члены этой группы будут иметь полный доступ к управлению сервером</span>
                                             </div>
                                         </div>
                                     </fieldset>
@@ -980,60 +980,60 @@ Is the information correct? [Y/n]
                                         <div class="step-title">
                                             <span class="icon icone-lightbulb yellow"></span>
                                             <h5>
-                                                STEP 2<br/>
-                                                <small>server.properties</small>
+                                                ШАГ 2<br/>
+                                                <small>Свойства сервера (server.properties)</small>
                                             </h5>
                                         </div>
                                         <div class="control-group">
-                                            <label class="control-label">server-port</label>
+                                            <label class="control-label">Порт сервера (server-port)</label>
                                             <div class="controls"><input type="text" name="server-port" class="input-medium" placeholder="25565"></div>
                                         </div>
                                         <div class="control-group">
-                                            <label class="control-label">server-ip</label>
+                                            <label class="control-label">Привязка к IP (server-ip)</label>
                                             <div class="controls">
                                                 <input type="text" name="server-ip" class="input-medium" placeholder="0.0.0.0">
-                                                <span class="help-block">The default "0.0.0.0" means the server will listen on all available network interfaces</span>
+                                                <span class="help-block">Значение по умолчанию "0.0.0.0" означает, что сервер будет принимать подключения на всех доступных сетевых интерфейсах</span>
                                             </div>
                                         </div>
                                         <div class="control-group">
-                                            <label class="control-label">max-players</label>
+                                            <label class="control-label">Максимальное количество игроков (max-players)</label>
                                             <div class="controls"><input type="text" name="max-players" class="input-medium" placeholder="20"></div>
                                         </div>
                                         <div class="control-group">
-                                            <label class="control-label">level-name</label>
+                                            <label class="control-label">Название мира (level-name)</label>
                                             <div class="controls"><input type="text" name="level-name" class="input-medium" placeholder="world"></div>
                                         </div>
                                         <div class="control-group">
-                                            <label class="control-label">level-seed</label>
+                                            <label class="control-label">Сид (level-seed)</label>
                                             <div class="controls">
                                                 <input type="text" name="level-seed" class="input-medium" placeholder="">
-                                                <span class="help-block">level-seed must be entered before the server is started for the first time</span>
+                                                <span class="help-block">Сид должен быть введен до того, как сервер будет запущен в первый раз, иначе будет сгенерирован случайный сид.</span>
                                             </div>
                                         </div>
                                         
                                         <div class="control-group">
-                                            <label class="control-label">difficulty</label>
+                                            <label class="control-label">Уровнь сложности (difficulty)</label>
                                             <div class="controls">
                                             <select class="input-medium" name="difficulty" data-bind="">
-                                                <option value="0">Peaceful</option><option value="1">Easy</option><option value="2">Normal</option><option value="3">Hard</option>
+                                                <option value="0">Мирный</option><option value="1">Лёгкий</option><option value="2">Нормальный</option><option value="3">Сложный</option>
                                             </select></div>
                                         </div>
                                         <div class="control-group">
-                                            <label class="control-label">gamemode</label>
+                                            <label class="control-label">Режим игры (gamemode)</label>
                                             <div class="controls">
                                             <select class="input-medium" name="gamemode" data-bind="">
-                                                <option value="0">Survival</option><option value="1">Creative</option><option value="2">Adventure</option>
+                                                <option value="0">Выживание (Survival)</option><option value="1">Строительство (Creative)</option><option value="2">Приключения (Adventure)</option>
                                             </select></div>
                                         </div>
                                         <div class="control-group">
-                                            <label class="control-label">level-type</label>
+                                            <label class="control-label">Тип мира (level-type)</label>
                                             <div class="controls">
                                             <select class="input-medium" name="level-type" data-bind="">
-                                                <option value="DEFAULT">DEFAULT</option><option value="FLAT">FLAT</option><option value="LARGEBIOMES">LARGEBIOMES</option>
+                                                <option value="DEFAULT">Обычный (DEFAULT)</option><option value="FLAT">Плоский (FLAT)</option><option value="LARGEBIOMES">Большие биомы (LARGEBIOMES)</option>
                                             </select></div>
                                         </div>
                                         <div class="control-group">
-                                            <label class="control-label">Generate Structures</label>
+                                            <label class="control-label">Создавать строения (Generate Structures)</label>
                                             <div class="controls">
                                                 <label class="checkbox">
                                                     <input type="checkbox" name="generate-structures" value="true" checked>
@@ -1046,12 +1046,12 @@ Is the information correct? [Y/n]
                                         <div class="step-title">
                                             <span class="icon icone-lightbulb yellow"></span>
                                             <h5>
-                                                STEP 3<br/>
-                                                <small>server.config</small>
+                                                ШАГ 3<br/>
+                                                <small>Конфигурация сервера (server.config)</small>
                                             </h5>
                                         </div>
                                         <div class="control-group">
-                                            <label class="control-label">profile</label>
+                                            <label class="control-label">Профиль</label>
                                             <div class="controls">
                                                 <select class="input-medium" data-section="minecraft" name="profile" data-bind="foreach: vmdata.profiles" required>
                                                     <option data-bind="text: profile, attr: {value: profile}"></option>
@@ -1059,56 +1059,56 @@ Is the information correct? [Y/n]
                                             </div>
                                         </div>
                                         <div class="control-group">
-                                            <label class="control-label">java_xmx</label>
+                                            <label class="control-label">Максимальная память (java_xmx)</label>
                                             <div class="controls">
                                                 <input type="text" data-section="java" name="java_xmx" class="input-medium" placeholder="256">
-                                                <span class="help-block">Maximum memory heap available exclusively to Minecraft (not including overhead)</span>
+                                                <span class="help-block">Максимальный объём памяти, доступный исключительно серверу Minecraft (не включая накладные расходы)</span>
                                             </div>
                                         </div>
                                         <div class="control-group">
-                                            <label class="control-label">java_xms</label>
+                                            <label class="control-label">Минимальная память (java_xms)</label>
                                             <div class="controls">
                                                 <input type="text" data-section="java" name="java_xms" class="input-medium" placeholder="256">
-                                                <span class="help-block">Minimum heapsize Minecraft will allocate (recommended same as java_xmx)</span>
+                                                <span class="help-block">Минимальный объём памяти, который займёт Minecraft (рекомендуется тот же, что и java_xmx)</span>
                                             </div>
                                         </div>
                                         <div class="control-group">
-                                            <label class="control-label">java_tweaks</label>
+                                            <label class="control-label">Ключи Java (java_tweaks)</label>
                                             <div class="controls">
                                                 <input type="text" data-section="java" name="java_tweaks" class="input-medium" placeholder="">
-                                                <span class="help-block">Additional java command-line arguments</span>
+                                                <span class="help-block">Дополнительные аргументы командной строки java, введите -server -Dfile.encoding=UTF-8 для поддержки кириллицы</span>
                                             </div>
                                         </div>
                                         <div class="control-group">
-                                            <label class="control-label">Archive Interval</label>
+                                            <label class="control-label">Интервал архивации</label>
                                             <div class="controls">
                                             <select class="input-medium" data-section="crontabs" name="archive_interval" data-bind="">
-                                                <option value="">Skip</option>
-                                                <option value="30">Every 30 minutes</option>
-                                                <option value="60">1 Hour</option>
-                                                <option value="120">2 Hours</option>
-                                                <option value="180">3 Hours</option>
-                                                <option value="360">6 Hours</option>
-                                                <option value="720">12 Hours</option>
-                                                <option value="0">24 Hours</option>
+                                                <option value="">Без архивации</option>
+                                                <option value="30">Каждые 30 минут</option>
+                                                <option value="60">Раз в час</option>
+                                                <option value="120">Раз в 2 часа</option>
+                                                <option value="180">Раз в 3 часа</option>
+                                                <option value="360">Раз в 6 часов</option>
+                                                <option value="720">Раз в 12 часов</option>
+                                                <option value="0">Раз в сутки</option>
                                             </select></div>
                                         </div>
                                         <div class="control-group">
-                                            <label class="control-label">Backup Interval</label>
+                                            <label class="control-label">Интервал создания резервной копии</label>
                                             <div class="controls">
                                             <select class="input-medium" data-section="crontabs" name="backup_interval" data-bind="">
-                                                <option value="">Skip</option>
-                                                <option value="30">Every 30 minutes</option>
-                                                <option value="60">1 Hour</option>
-                                                <option value="120">2 Hours</option>
-                                                <option value="180">3 Hours</option>
-                                                <option value="360">6 Hours</option>
-                                                <option value="720">12 Hours</option>
-                                                <option value="0">24 Hours</option>
+                                                <option value="">Без создания</option>
+                                                <option value="30">Каждые 30 минут</option>
+                                                <option value="60">Раз в час</option>
+                                                <option value="120">Раз в 2 часа</option>
+                                                <option value="180">Раз в 3 часа</option>
+                                                <option value="360">Раз в 6 часов</option>
+                                                <option value="720">Раз в 12 часов</option>
+                                                <option value="0">Раз в сутки</option>
                                             </select></div>
                                         </div>
                                         <div class="control-group">
-                                            <label class="control-label">Start Server on Boot</label>
+                                            <label class="control-label">Запускать сервер при загрузке</label>
                                             <div class="controls">
                                                 <label class="checkbox">
                                                     <input data-section="onreboot" type="checkbox" name="start" value="true">
@@ -1118,8 +1118,8 @@ Is the information correct? [Y/n]
                                     </fieldset>
                                     
                                     <div class="form-actions">
-                                        <input class="btn" id="back-1" value="Back" type="reset">
-                                        <input type="submit" class="btn btn-primary" id="next-1" value="Next">
+                                        <input class="btn" id="back-1" value="Назад" type="reset">
+                                        <input type="submit" class="btn btn-primary" id="next-1" value="Далее">
                                     </div>
                                 </div>
                             </section>
@@ -1137,7 +1137,7 @@ Is the information correct? [Y/n]
                         <!-- START Page/Section header -->
                         <div class="span12">
                             <div class="page-header line1">
-                                <h4>server.properties</h4>
+                                <h4>Свойства сервера (server.properties)</h4>
                             </div>
                         </div>
                         <!--/ END Page/Section header -->
@@ -1148,13 +1148,13 @@ Is the information correct? [Y/n]
                         <table id="table_properties" class="table table-hover">
                           <thead>
                             <tr>
-                              <th scope="col" class="span4">Option</th>
-                              <th scope="col">Value</th>
+                              <th scope="col" class="span4">Параметр</th>
+                              <th scope="col">Значение</th>
                             </tr>
                           </thead>
                           <tfoot>
                             <tr>
-                            	<td><button class="btn btn-primary" data-config="sp" data-bind="click: new_property"><span class="icone-edit"></span> New Property</button></td>
+                            	<td><button class="btn btn-primary" data-config="sp" data-bind="click: new_property"><span class="icone-edit"></span> Новый параметр</button></td>
                             </tr>
                           </tfoot>
                           <tbody data-bind="foreach: vmdata.sp">
@@ -1190,7 +1190,7 @@ Is the information correct? [Y/n]
                         <!-- START Page/Section header -->
                         <div class="span12">
                             <div class="page-header line1">
-                                <h4>server.config</h4>
+                                <h4>Конфигурация сервера (server.config)</h4>
                             </div>
                         </div>
                         <!--/ END Page/Section header -->
@@ -1201,14 +1201,14 @@ Is the information correct? [Y/n]
                         <table id="table_config" class="table table-hover">
                           <thead>
                             <tr>
-                              <th scope="col" class="span3">Section</th>
-                              <th scope="col" class="span4">Option</th>
-                              <th scope="col">Value</th>
+                              <th scope="col" class="span3">Раздел</th>
+                              <th scope="col" class="span4">Параметр</th>
+                              <th scope="col">Значение</th>
                             </tr>
                           </thead>
                           <tfoot>
                             <tr>
-                            	<td><button class="btn btn-primary" data-config="sc" data-bind="click: new_property"><span class="icone-edit"></span> New Property</button></td>
+                            	<td><button class="btn btn-primary" data-config="sc" data-bind="click: new_property"><span class="icone-edit"></span> Новый параметр</button></td>
                             </tr>
                           </tfoot>
                           <tbody data-bind="foreach: vmdata.sc">
@@ -1228,15 +1228,15 @@ Is the information correct? [Y/n]
                                         </span>
                                         <span data-bind="if: $data.type == 'interval'">
                                             <select class="input-medium" data-bind="attr: {id: $data.id}, event: { change: $data.change_select }">
-                                                <option value="">Skip</option>
-                                                <option value="30">Every 30 minutes</option>
-                                                <option value="60">1 Hour</option>
-                                                <option value="120">2 Hours</option>
-                                                <option value="180">3 Hours</option>
-                                                <option value="240">4 Hours</option>
-                                                <option value="360">6 Hours</option>
-                                                <option value="720">12 Hours</option>
-                                                <option value="0">24 Hours</option>
+                                                <option value="">Не выполнять</option>
+                                                <option value="30">Каждые 30 минут</option>
+                                                <option value="60">Раз в час</option>
+                                                <option value="120">Раз в 2 часа</option>
+                                                <option value="180">Раз в 3 часа</option>
+                                                <option value="240">Раз в 4 часа</option>
+                                                <option value="360">Раз в 6 часов</option>
+                                                <option value="720">Раз в 12 часов</option>
+                                                <option value="0">Раз в сутки</option>
                                             </select>
                                         </span>
                                     </div>
@@ -1256,52 +1256,52 @@ Is the information correct? [Y/n]
                     <div class="row-fluid">
                         <!-- START Form Wizard With Validation -->
                         <form data-bind="submit: define_profile" class="span12 widget dark shadowed form-horizontal bordered" id="definenewprofile">
-                            <header><h4 class="title">Create a New Server Profile</h4></header>
+                            <header><h4 class="title">Создать новый профиль сервера</h4></header>
                             <section class="body">
                                 <div class="body-inner">
 
                                     <fieldset id="step1" class="step">
                                         <div class="control-group">
-                                            <label class="control-label">profile name</label>
+                                            <label class="control-label">Название профиля</label>
                                             <div class="controls">
                                                 <input type="text" name="name" class="input-medium required" placeholder="vanilla162">
                                             </div>
                                         </div>
                                         <div class="control-group">
-                                            <label class="control-label">type</label>
+                                            <label class="control-label">Тип</label>
                                             <div class="controls">
                                                 <select class="input-xlarge" name="type" data-bind="value: profile_type">
-                                                    <option value="standard_jar">Standalone, runnable JAR</option>
-                                                    <option value="archived_jar">Archive containing runnable JAR</option>
-                                                    <option value="unmanaged">Unmanaged</option>
+                                                    <option value="standard_jar">Отдельный запускаемый файл JAR</option>
+                                                    <option value="archived_jar">Архив, содержащий запускаемый файл JAR</option>
+                                                    <option value="unmanaged">Необновляемый</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="control-group" data-bind="visible: profile_type() != 'unmanaged'">
-                                            <label class="control-label">Download URL</label>
+                                            <label class="control-label">Ссылка URL для загрузки</label>
                                             <div class="controls">
                                                 <input type="text" name="url" class="input-xlarge" placeholder="http://dl.bukkit.org/latest-rb/craftbukkit.jar">
-                                                <span class="help-block">Preferably enter a direct URL rather than a server-side redirected URL</span>
+                                                <span class="help-block">Предпочтительно вводите прямую ссылку, нежели ссылку с серверной переадресацией</span>
                                             </div>
                                         </div>
                                         <div class="control-group" data-bind="visible: profile_type() != 'unmanaged'">
-                                            <label class="control-label">Save download as</label>
+                                            <label class="control-label">Сохранять загруженный файл как</label>
                                             <div class="controls">
                                                 <input type="text" name="save_as" class="input-xlarge" placeholder="craftbukkit.jar">
-                                                <span class="help-block">Be sure <em>only</em> the filename is here</span>
+                                                <span class="help-block">Здесь должно быть <em>исключительно</em> имя файла</span>
                                             </div>
                                         </div>
                                         <div class="control-group">
-                                            <label class="control-label">Jarfile to run</label>
+                                            <label class="control-label">Запускать файл Jar</label>
                                             <div class="controls">
                                             <input type="text" name="run_as" class="input-xlarge" placeholder="craftbukkit.jar" required>
-                                                <span class="help-block" data-bind="visible: profile_type() == 'standard_jar'">In most cases, this will match the above line 'save download as'.</span>
-                                                <span class="help-block" data-bind="visible: profile_type() == 'archived_jar'">The name of the server jar within the archive file to execute.</span>
-                                                <span class="help-block" data-bind="visible: profile_type() == 'unmanaged'">Manually place this file directly in the <strong class="text-success" data-placement="top" title="" rel="tooltip" data-original-title=".../servers/servername/jarfile.jar">server's directory</strong>.</span>
+                                                <span class="help-block" data-bind="visible: profile_type() == 'standard_jar'">В большинстве случаев, здесь должно быть то же самое, что и в строчке 'Сохранять загруженный файл как'.</span>
+                                                <span class="help-block" data-bind="visible: profile_type() == 'archived_jar'">Имя исполняемого файла jar в архиве.</span>
+                                                <span class="help-block" data-bind="visible: profile_type() == 'unmanaged'">Вручную скопируйте этот файл в директорию <strong class="text-success" data-placement="top" title="" rel="tooltip" data-original-title=".../servers/servername/jarfile.jar">, где находятся файлы сервера</strong>.</span>
                                             </div>
                                         </div>
                                      	<div class="control-group">
-                                            <label class="control-label">Jarfile arguments</label>
+                                            <label class="control-label">Аргументы файла Jar</label>
                                             <div class="controls">
                                             <input type="text" name="jar_args" class="input-xlarge" placeholder="nogui">
                                                 <span class="help-block"></span>
@@ -1310,17 +1310,17 @@ Is the information correct? [Y/n]
                                         
                                         <!-- Tags -->
                                         <div class="control-group" data-bind="visible: profile_type() == 'archived_jar'">
-                                            <label class="control-label">Files to not process</label>
+                                            <label class="control-label">Файлы, которые не будут обрабатываться</label>
                                             <div class="controls">
                                                 <ul class="input-xlarge" id="ignore_files">
                                                 </ul>
-                                                <span class="help-block">Files that <strong class="text-success" data-placement="top" title="" rel="tooltip" data-original-title="Some archives may come with default configs, e.g., server.properties. Ignore-list these files to preserve user configs">should not</strong> be copied from the archive to the server directory.</span>
+                                                <span class="help-block">Файлы, которые <strong class="text-success" data-placement="top" title="" rel="tooltip" data-original-title="Некоторые архивы комплектуются настройками по умолчанию, например, server.properties. Добавьте такие файлы в список исключений для сохранения пользовательских настроек">не должны</strong> быть скопированы из архива в директорию сервера.</span>
                                             </div>
                                         </div><!--/ Tags -->
                                     </fieldset>
 
                                     <div class="form-actions">
-                                        <input type="submit" class="btn btn-primary" value="Next">
+                                        <input type="submit" class="btn btn-primary" value="Далее">
                                     </div>
                                 </div>
                             </section>
@@ -1338,7 +1338,7 @@ Is the information correct? [Y/n]
                         <!-- START Line Chart - Filled -->
                         <div class="span12 widget">
                             <header>
-                                <h4 class="title">Server Logs</h4>
+                                <h4 class="title">Журнал сервера</h4>
                             </header>
                         </div>
                         <!--/ END Line Chart - Filled -->
@@ -1350,7 +1350,7 @@ Is the information correct? [Y/n]
                         <!-- START Line Chart - Filled -->
                         <div class="span12">
                             <form data-bind="submit: console_command">
-                                <input type="text" name="console_command" class="span12" placeholder="send command to console">
+                                <input type="text" name="console_command" class="span12" placeholder="Отправить команду консоли сервера">
                             </form>
                         </div>
                         <!--/ END Line Chart - Filled -->
@@ -1366,10 +1366,10 @@ Is the information correct? [Y/n]
                                     <table class="table table-bordered table-striped table-hover" id="logs">
                                         <thead>
                                             <tr>
-                                                <th>Entry
+                                                <th>Запись
                                                     <div class="btn-group pull-right">
-                                                        <a href="#" class="btn btn-small" data-bind="click: function() { logs.reversed(!logs.reversed()) }">Reverse Order</a>
-                                                        <!--<a href="#" class="btn btn-small" data-bind="click: reset_logs">Show most recent 100 lines</a>-->
+                                                        <a href="#" class="btn btn-small" data-bind="click: function() { logs.reversed(!logs.reversed()) }">В обратном порядке</a>
+                                                        <!--<a href="#" class="btn btn-small" data-bind="click: reset_logs">Показать последние 100 строк</a>-->
                                                     </div>
                                                 </th>
                                             </tr>
@@ -1401,29 +1401,29 @@ Is the information correct? [Y/n]
 
                 <div id="import_server_modal" class="modal hide fade" style="display: none;" aria-hidden="true">
                     <div class="modal-header">
-                        <h4 id="myModalLabel">Create a new server from an existing archive</h4>
+                        <h4 id="myModalLabel">Создать новый сервер из существующего архива</h4>
                     </div>
                     <div class="modal-body" data-bind="if: $root.import_information()">
-                        <p><strong data-bind="text: $root.import_information().filename"></strong> will be extracted.</p>
-                        <p>Please enter the name of the new server to create:</p>
+                        <p><strong data-bind="text: $root.import_information().filename"></strong> будет распакован.</p>
+                        <p>Введите имя нового сервера:</p>
                         <input type="text" name="newname" class="input-medium required" placeholder="server_name">
                     </div>
                     <div class="modal-footer">
-                        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-                        <button data-bind="click: $root.import_server" data-dismiss="modal" class="btn btn-success">Create new Server</button>
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">Отменить</button>
+                        <button data-bind="click: $root.import_server" data-dismiss="modal" class="btn btn-success">Создать сервер</button>
                     </div>
                 </div>
 
                 <div id="remove_profile_modal" class="modal hide fade" style="display: none;" aria-hidden="true">
                     <div class="modal-header">
-                        <h4>Remove <span data-bind="text: pruning.profiles.profile"></span> from available profiles?</h4>
+                        <h4>Удалить <span data-bind="text: pruning.profiles.profile"></span> из доступных профилей?</h4>
                     </div>
                     <div class="modal-body">
-                        <p>All downloaded files for this profile will be deleted.</p>
+                        <p>Все скачанные файлы для этого профиля будут удалены.</p>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn" data-dismiss="modal" aria-hidden="true">Keep this Profile</button>
-                        <button data-bind="click: $root.prune_profile" data-dismiss="modal" class="btn btn-danger">Remove Profile</button>
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">Сохранить профиль</button>
+                        <button data-bind="click: $root.prune_profile" data-dismiss="modal" class="btn btn-danger">Удалить профиль</button>
                     </div>
                 </div>
 
@@ -1432,14 +1432,14 @@ Is the information correct? [Y/n]
 
             <!-- START Template Footer -->
             <footer id="footer" class="">
-                <div><span><a href="http://minecraft.codeemo.com">MineOS</a> created and maintained by <a href="mailto:wdchromium@gmail.com">William Dizon</a></span> 
-                - <span>Released via <a href="http://www.gnu.org/licenses/gpl-3.0.html">GNU GPL v3.0</a></span> - 
-                    <span>MineOS is free; show your support through Paypal!
+                <div><span><a href="http://minecraft.codeemo.com">MineOS</a> создан и поддерживается <a href="mailto:wdchromium@gmail.com">William Dizon</a></span> 
+                - <span>Распространяется по лицензии <a href="http://www.gnu.org/licenses/gpl-3.0.html">GNU GPL v3.0</a></span> - 
+                    <span>MineOS - свободное ПО; окажите поддержку через Paypal!
                         <form id="donate" action="https://www.paypal.com/cgi-bin/webscr" method="post">
                           <input type="hidden" name="cmd" value="_s-xclick">
                           <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
                         ">
-                          <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                          <input type="image" src="https://www.paypal.com/ru_RU/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
                           <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
                         </form>
                     </span>
