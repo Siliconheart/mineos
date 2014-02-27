@@ -68,7 +68,7 @@
                 <!-- START Toolbar -->
                 <ul class="toolbar" id="toolbar">
                     <li>
-                        <a data-bind="attr: {href: 'https://github.com/hexparrot/mineos/commit/'+dashboard.git_hash()}, text: 'webui version: '+dashboard.git_hash()"></a>
+                        <a data-bind="attr: {href: 'https://github.com/hexparrot/mineos/commit/'+dashboard.git_hash()}, text: 'Версия панели: '+dashboard.git_hash()"></a>
                     </li>
                     <!-- START Profile -->
                     <li class="profile">
@@ -188,7 +188,7 @@
                                     <li class="accordion-group" data-bind="visible: server().server_name, css: {'active': page() == 'server_properties'}">
                                         <a data-bind="click: show_page" data-page="server_properties">
                                             <span class="icon iconm-pencil-5"></span>
-                                            <span class="text">server.properties</span>
+                                            <span class="text">Свойства сервера</span>
                                         </a>
                                     </li>
                                     <!--/ END Menu -->
@@ -197,7 +197,7 @@
                                     <li class="accordion-group" data-bind="visible: server().server_name, css: {'active': page() == 'server_config'}">
                                         <a data-bind="click: show_page" data-page="server_config">
                                             <span class="icon iconm-pencil-5"></span>
-                                            <span class="text">server.config</span>
+                                            <span class="text">Конфигурация сервера</span>
                                         </a>
                                     </li>
                                     <!--/ END Menu -->
@@ -240,7 +240,7 @@
                         </div>
                         <div class="alert" data-bind="visible: !dashboard.pc_permissions() && (page() == 'profiles' || page() == 'define_profile')">
                             <button type="button" class="close" data-dismiss="alert">×</button>
-                            У Вас нет прав на <strong>/profiles/profile.config</strong>, Так что вы сможете использовать профили, но не создавать их.
+                            У Вас нет прав на <strong>/profiles/profile.config</strong>, поэтому Вы сможете использовать профили, но не создавать их.
                         </div>
                         <div class="alert alert-error" data-bind="visible: !parseInt(vm.server().java_xmx) > 0 && !$.isEmptyObject(vm.server())">
                             <button type="button" class="close" data-dismiss="alert">×</button>
@@ -293,7 +293,7 @@
                                         <figure class="stats summary">
                                             <div class="icon circle teal"><span class="icone-ticket"></span></div>
                                             <figcaption>
-                                                <h3><span data-bind="text: dashboard.memfree"></span><small>Свободно памяти MB</small></h3>
+                                                <h3><span data-bind="text: dashboard.memfree"></span><small>Свободно памяти, Мб</small></h3>
                                             </figcaption>
                                         </figure>
                                         <!--/ END Summary -->
@@ -345,7 +345,7 @@
                               <td data-bind="text: server_name, click: $root.select_server"></td>
                               <td data-bind="text: profile"></td>
                               <td data-bind="text: port"></td>
-                              <td data-bind=""><span class="label" data-bind="text: (up ? 'online' : 'offline'), css: {'label-success': up, 'label-important': !up}"></span></td>
+                              <td data-bind=""><span class="label" data-bind="text: (up ? 'Работает' : 'Выключен'), css: {'label-success': up, 'label-important': !up}"></span></td>
                               <td data-bind="text: capacity"></td>
                               <td data-bind="text: mem_utilization, style: {color: overextended() ? 'orange' : 'black'}"></td>
                             </tr>
@@ -528,7 +528,7 @@
                         <div class="control-group">
                             <label class="control-label">Удалить точки восстановления старше чем:</label>
                             <div class="controls">
-                                <input type="text" id="prune_increment_input" data-bind="value: pruning.increments.user_input, valueUpdate:['afterkeydown','propertychange','input']" placeholder="Введите дату или шаг"> <button data-bind="click: prune_increments, visible: pruning.increments.remove_count() > 0" type="button" class="btn btn-danger"><span class="icone-remove-circle"></span> Prune Restore Points</button>
+                                <input type="text" id="prune_increment_input" data-bind="value: pruning.increments.user_input, valueUpdate:['afterkeydown','propertychange','input']" placeholder="Введите дату или шаг"> <button data-bind="click: prune_increments, visible: pruning.increments.remove_count() > 0" type="button" class="btn btn-danger"><span class="icone-remove-circle"></span> Удалить точки восстановления</button>
                             </div>
                         </div>
 
@@ -554,7 +554,7 @@
                                     <figure class="stats summary shadowed">
                                         <div class="icon circle purple"><span class="icone-shopping-cart"></span></div>
                                         <figcaption>
-                                            <h3><span data-bind="text: pruning.increments.space_reclaimed"></span><small>MB освобождено</small></h3>
+                                            <h3><span data-bind="text: pruning.increments.space_reclaimed"></span><small>Мб освобождено</small></h3>
                                         </figcaption>
                                     </figure><!--/ END Summary 2 -->
                                 </div>
@@ -584,7 +584,7 @@
                               <td data-bind="text: $data.timestamp"></td>
                               <td data-bind="text: $data.increment_size"></td>
                               <td data-bind="text: $data.cumulative_size"></td>
-                              <td><button data-required="server_name,step,force" data-cmd="restore" data-bind="click: $root.command" class="btn btn-success btn-mini">Restore</button></td>
+                              <td><button data-required="server_name,step,force" data-cmd="restore" data-bind="click: $root.command" class="btn btn-success btn-mini">Откатить</button></td>
                             </tr>
                           </tbody>
                         </table>
@@ -626,7 +626,7 @@
                                     <figure class="stats summary shadowed">
                                         <div class="icon circle purple"><span class="icone-shopping-cart"></span></div>
                                         <figcaption>
-                                            <h3><span data-bind="text: pruning.archives.space_reclaimed"></span><small>MB освобождено</small></h3>
+                                            <h3><span data-bind="text: pruning.archives.space_reclaimed"></span><small>Мб освобождено</small></h3>
                                         </figcaption>
                                     </figure><!--/ END Summary 2 -->
                                 </div>
@@ -726,7 +726,7 @@ Is the information correct? [Y/n]
                         </header>
                         <section class="body">
                             <div class="body-inner">
-                                <p>Перечисленные ниже файлы находятся в директории <strong class="text-success" data-placement="top" title="" rel="tooltip" data-original-title="Допускаются архивы типа .tar, .tar.gz, .tgz, и .zip"><span data-bind="text: $root.dashboard.base_directory"></span>/import</strong> Ваших Minecraft-файлов.</p>
+                                <p>Перечисленные ниже файлы находятся в директории <strong class="text-success" data-placement="top" title="" rel="tooltip" data-original-title="Допускаются архивы типа .tar, .tar.gz, .tgz, и .zip"><span data-bind="text: $root.dashboard.base_directory"></span>/import</strong> файловой системы сервера.</p>
                             </div>
                         </section>
                         <table id="table_importable" class="table table-hover" data-bind="">
@@ -773,7 +773,7 @@ Is the information correct? [Y/n]
                             <tr>
                               <th scope="col">Профиль</th>
                               <th scope="col">Запускаемый Jar-файл</th>
-                              <th scope="col">Путь URL</th>
+                              <th scope="col">Ссылка URL</th>
                               <th scope="col">OK</th>
                               <th scope="col"></th>
                             </tr>
@@ -815,7 +815,7 @@ Is the information correct? [Y/n]
                             <div class="body-inner">
                                 <p>Профили сервера могут быль использованы любым пользователем, но редактировать их может пользователь с правами записи в <strong class="text-success" data-placement="top" title="" rel="tooltip" data-original-title="chmod g+w profile.config">profile.config</strong>.
                                 <span data-bind="visible: $root.dashboard.whoami() != 'root'">Пользователь <strong>root</strong> может расширить эти привилегии на дополнительных пользователей, присвоив файл <strong><span data-bind="text: $root.dashboard.base_directory"></span>/profiles/profile.config</strong> новой группе, а затем добавляя в неё доверенных пользователей.</span>
-                                <span data-bind="visible: $root.dashboard.whoami() == 'root'">Вы можете предоставить это право другим пользователям, назначая файлу <strong><span data-bind="text: $root.dashboard.base_directory"></span>/profiles/profile.config</strong> новую группу и добавля в неё доверенных пользователей.</span></p>
+                                <span data-bind="visible: $root.dashboard.whoami() == 'root'">Вы можете предоставить это право другим пользователям, назначая файлу <strong><span data-bind="text: $root.dashboard.base_directory"></span>/profiles/profile.config</strong> новую группу и добавляя в неё доверенных пользователей.</span></p>
                                 Члены этой группы могут редактировать и удалять профили серверов: 
                                 <select id="pc_group" name="pc_group" data-bind="visible: $root.dashboard.whoami() == 'root', options: $root.dashboard.groups, event: { change: $root.change_pc_group }"></select>
                                 <strong data-bind="visible: $root.dashboard.whoami() != 'root', text: $root.dashboard.pc_group"></strong>
@@ -911,7 +911,7 @@ Is the information correct? [Y/n]
                             </header>
                             <section class="body">
                                 <div class="body-inner">
-                                    <p>Создавать и запускать сервер следует исключительно от имени непривилегированного пользователя, чтобы предотвратить возможное причинение вреда от использования уязвимостей сервера, сбойных плагинов или проблем с безопасностью в java.</p>
+                                    <p>Создавать и запускать сервер следует исключительно от имени непривилегированного пользователя, чтобы предотвратить возможное причинение вреда от использования уязвимости сервера, сбойных плагинов или проблем с безопасностью в java.</p>
                                     <p>Вы можете создать пользователя из командной строки используя <strong>adduser</strong></p>
                                 </div>
                             </section>
@@ -1012,7 +1012,7 @@ Is the information correct? [Y/n]
                                         </div>
                                         
                                         <div class="control-group">
-                                            <label class="control-label">Уровнь сложности (difficulty)</label>
+                                            <label class="control-label">Уровень сложности (difficulty)</label>
                                             <div class="controls">
                                             <select class="input-medium" name="difficulty" data-bind="">
                                                 <option value="0">Мирный</option><option value="1">Лёгкий</option><option value="2">Нормальный</option><option value="3">Сложный</option>

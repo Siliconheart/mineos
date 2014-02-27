@@ -1474,7 +1474,7 @@ ul.check li:last-child {
 	display: inline-block;
 	text-align: left;
 	vertical-align: middle;
-	text-transform: capitalize;
+/*	text-transform: capitalize;*/
 	font-weight: 700;
 	line-height: 14px;
 }
@@ -1806,7 +1806,7 @@ ul.check li:last-child {
 	display: inline-block;
 	padding: 0;
 	vertical-align: top;
-	text-transform: capitalize;
+/*	text-transform: capitalize;*/
 	line-height: 24px;
 }
 #sidebar #nav > ul > li > a > .text { margin: 10px 10px 10px 0px; }
@@ -2162,7 +2162,7 @@ ul.check li:last-child {
 	min-height: 40px;
 	border-bottom: 1px solid #eee;
 	background-color: #f9f9f9;
-	text-transform: capitalize;
+/*	text-transform: capitalize;*/
 }
 .widget > header > .title {
 	display: inline-block;
